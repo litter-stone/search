@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>仿百度及时搜索</title>
+  <link rel="stylesheet" type="text/css" href="">
+  <style type="text/css">
+    *{
+      margin:0;
+      padding:0;
+    }
+    html,body{
+        width:100%;
+        height:100%;
+    }
+    a{
+        color:#fff;
+    }
+    body{
+      min-height:600px;
+      font-size:12px;
+      font-family:微软雅黑;
+      background:url(images/1.jpg);
+      background-size:cover;
+    }
+    .fork{
+        position:fixed;
+        top:0;
+        right:0;
+        z-index:1;
+    }
+    /*header start*/
+    .header{
+        width:100%;
+        height:32px;
+        min-width:1000px;
+        background:rgba(15,25,50,.3);
+    }
+    .header .left_nav .weather{
+        height:32px;
+        float:left;
+    }
+    .header .left_nav .weather a{
+        text-decoration:none;
+        line-height:32px;
+        text-indent:10px;
+        display:block;
+    }
+    .header .left_nav .weather a span{
+        margin-right:2px;
+    }
+    .header .left_nav .weather .icon{
+        width:18px;
+        height:18px;
+        display:inline-block;
+        vertical-align:middle;
+        background:url(images/a.png);
+    }
+    .header .left_nav .tool{
+        float:left;
+    }
+    .header .left_nav .tool a{
+        line-height:32px;
+        margin-left:10px;
+    }
+    .header .right_nav{
+        float:right;
+    }
+    .header .right_nav a{
+        line-height:32px;
+        color:#fff;
+        margin-left:15px;
+    }
+    .header .right_nav a:last-child{
+        text-decoration:none;
+        background:#398bfb;
+        padding:8px;
+    }
+    /*header end*/
+    /*body start*/
+    .body{
+        width:600px;
+        margin:130px auto 290px;
+        position:relative;
+    }
+    .body .logo{
+        width:160px;
+        height:100px;
+        margin:0 auto;
+        background:url(images/logo.png) -25px 0px ;
+        background-size:cover;
+    }
+    .body .search{
+        width:600px;
+        height:40px;
+        position:relative;
+    }
+    .body .search #text{
+        width:500px;
+        height:40px;
+        font-size:16px;
+        float:left;
+        border:0;
+        outline:none;
+    }
+    .body .search #button{
+        width:100px;
+        height:40px;
+        font-size:16px;
+        float:right;
+        border:0;
+        outline:none;
+        cursor:pointer;
+    }
+    .body .search #list{
+        width:500px;
+        margin-top:40px;
+        border:1px solid gray;
+        border-bottom:0;
+    }
+    .body .search #list li{
+        width:500px;
+        list-style:none;
+        text-indent:16px;
+        border-bottom:1px solid gray;
+    }
+    .body .search #list li a{
+        text-decoration:none;
+        line-height:40px;
+        display:block;
+    }
+    .body .search .camera{
+        width:18px;
+        height:16px;
+        display:block;
+        background:url(images/camera.png);
+        position:absolute;
+        top:50%;
+        right:110px;
+        margin-top:-8px;
+    }
+    .body .search .camera:hover{
+        background-position:0 18px;
+    }
+    /*body end*/
+    /*footer start*/
+    .footer p{
+        text-align:center;
+        color:#fff;
+        line-height:20px;
+    }
+    .footer .recordcode span a i{
+       width:14px;
+       height:16px;
+       display:inline-block;
+       background:url(images/icon-police.png);
+       vertical-align:middle;
+    }
+    /*footer end*/
+  </style>
+</head>
+<body>
+    <a class="fork" href="https://github.com/xlweb/search" target="_blank">
+        <img src="images/forkme.png" width="149" height="149" />
+    </a>
+    <!-- header start -->
+    <div class = "header">
+        <div class = "left_nav">
+            <div  class = "weather">
+                <a href = "#">
+                    <span class = "city">深圳:</span>
+                    <span class = "icon"></span>
+                    <span class = "temp">30&deg;</span>
+                    <span class = "polution-name">优</span>
+                    <span class = "polution-num">21</span>
+                    <span class = "vertical">|</span>
+                </a>
+            </div>
+            <div class = "tool">
+                <a href = "#">宝箱</a>
+                <a href = "#">换肤</a>
+                <a href = "#">消息</a>
+                <a href = "#">显示频道</a>
+            </div>
+        </div>
+        <div class = "right_nav">
+           <a href="#">糯米</a>
+           <a href="#">新闻</a>
+           <a href="#">hao123</a>
+           <a href="#">地图</a>
+           <a href="#">视频</a>
+           <a href="#">贴吧</a>
+           <a href="#">账号</a>
+           <a href="#">设置</a>
+           <a href="#" class = "produce">更多产品</a>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body start -->
+    <div class = "body">
+        <div class = "logo"></div>
+        <div class = "search">
+            <span class = "camera"></span>
+            <input type = "text" id = "text" autofocus/>
+            <input type = "button" id = "button" value = "百度一下" />
+            <ul id = "list">
+
+            </ul>
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer start -->
+    <div class = "footer">
+        <p class = "info">
+            <a href="#">设为首页</a>
+            <span>&copy;2016&nbsp;Buidu&nbsp;</span>
+            <a href="#">使用百度前必读</a>&nbsp;
+            <a href="#">意见反馈</a>&nbsp;
+            <span>京ICP证030173号&nbsp;<img src = "images/copy.png" width = "13"height = "16"></span>
+        </p>
+        <p class = "recordcode">
+            <span><a href = "#"><i></i>&nbsp;京公网安备11000002000001号</a></span>
+        </p>
+    </div>
+    <!-- footer end -->
+    <script type="text/javascript">
+        var oText = document.getElementById("text");
+        var oButton = document.getElementById("button");
+        var oList = document.getElementById("list");
+        oText.onkeyup = function(){
+            var val = oText.value;
+            var oS = document.createElement("script");
+            oS.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=xl";
+            document.body.appendChild(oS);
+            document.body.removeChild(oS);
+        }
+        function xl(json){
+            var data = json.s;
+            var html = "";
+            for(var i = 0;i<data.length;i++){
+                html +="<li><a href=\"https://www.baidu.com/s?wd="+data[i]+"\">"+data[i]+"</a></li>";
+            }
+            oList.innerHTML = html;
+        }
+        oList.onmouseover = function(e){
+            var e = e || window.event;
+            var target = e.target|| e.srcElement;
+             target.style.backgroundColor = "gray";
+        }
+        oList.onmouseout = function(e){
+            var e = e || window.event;
+            var target = e.target|| e.srcElement;
+             target.style.backgroundColor = "";
+        }
+        oButton.onclick = function(){
+            var valu = oText.value;
+            window.location.href = "https://www.baidu.com/s?wd="+valu;
+        }
+    </script>
+</body>
+</html>
